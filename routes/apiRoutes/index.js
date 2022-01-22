@@ -41,7 +41,7 @@ router
         console.info('delete')
         const results = findByid(req.params.id, notes);
         if (results) {
-            (results);
+            delete results.id;
         } else {
             res.send(404);
         }
