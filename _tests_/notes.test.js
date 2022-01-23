@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {
     filterByQuery,
-    findByTitle,
+    findByid,
     createNewNote,
     validateNote
 } = require('../lib/notes');
@@ -36,19 +36,21 @@ test('filters by query', () => {
     expect(updatedNotes.length).toEqual(1)
 });
 
-test('finds by title', () => {
+test('finds by id', () => {
     const startingNotes = [
-        {
+        {   
             title: 'test',
-            text: 'just a test'
+            text: 'just a test',
+            id: '2'
         },
-        {
+        { 
             title: 'test two',
-            text: 'just another test'
+            text: 'just another test',
+            id: '1'
         }
     ];
 
-    const result = findByTitle('test two', startingNotes);
+    const result = findByid("1", startingNotes);
 
     expect(result.text).toBe('just another test');
 });
